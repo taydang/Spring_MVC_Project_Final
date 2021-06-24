@@ -5,7 +5,7 @@
  */
 package com.mycompany.spring_mvc_project_final.repository;
 
-import com.mycompany.spring_mvc_project_final.entities.BookingDetailEntity;
+import com.mycompany.spring_mvc_project_final.entities.ImageEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,6 +14,6 @@ import org.springframework.stereotype.Repository;
  * @author Admin
  */
 @Repository
-public interface BookDetailRepository extends CrudRepository<BookingDetailEntity, Integer> {
+public interface ImageRepository extends CrudRepository<ImageEntity, Integer>{
     
 }
