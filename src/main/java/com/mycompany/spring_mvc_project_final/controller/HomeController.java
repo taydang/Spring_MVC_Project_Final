@@ -43,4 +43,21 @@ public class HomeController {
     public String accessDenied(Model model) {
         return "403Page";
     }
+    
+//     @RequestMapping("/users/export/pdf")
+//    public void exportToPDF(HttpServletResponse response) throws DocumentException, IOException {
+//        response.setContentType("application/pdf");
+//        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+//        String currentDateTime = dateFormatter.format(new Date());
+//         
+//        String headerKey = "Content-Disposition";
+//        String headerValue = "attachment; filename=users_" + currentDateTime + ".pdf";
+//        response.setHeader(headerKey, headerValue);
+//         
+//        List<User> listUsers = service.listAll();
+//         
+//        UserPDFExporter exporter = new UserPDFExporter(listUsers);
+//        exporter.export(response);
+//         
+//    }
 }

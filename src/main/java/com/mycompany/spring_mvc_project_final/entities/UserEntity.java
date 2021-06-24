@@ -32,32 +32,32 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "user", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
-public class UserEntity implements Serializable {
+public class UserEntity extends PersonalEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(unique = true, length = 100, nullable = false)
-    private String email;
+//    @Column(unique = true, length = 100, nullable = false)
+//    private String email;
     
     @Column(nullable = false)
     private String password;
     
-    @Column(nullable = false)
-    private String fullName;
-    
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private Gender gender = Gender.MALE;
-    
-    private String address;
-    private String phoneNumber;
-    
-    @Column(name = "birth_date")
-    @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date birthDate;
+//    @Column(nullable = false)
+//    private String fullName;
+//    
+//    @Column(nullable = false)
+//    @Enumerated(EnumType.STRING)
+//    private Gender gender = Gender.MALE;
+//    
+//    private String address;
+//    private String phoneNumber;
+//    
+//    @Column(name = "birth_date")
+//    @Temporal(TemporalType.DATE)
+//    @DateTimeFormat(pattern = "yyyy-MM-dd")
+//    private Date birthDate;
     
     @Column(nullable = false, name = "user_status")
     @Enumerated(EnumType.STRING)
@@ -97,13 +97,13 @@ public class UserEntity implements Serializable {
         this.id = id;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
+//    public String getEmail() {
+//        return email;
+//    }
+//
+//    public void setEmail(String email) {
+//        this.email = email;
+//    }
 
     public String getPassword() {
         return password;
@@ -113,45 +113,45 @@ public class UserEntity implements Serializable {
         this.password = password;
     }
 
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public Gender getGender() {
-        return gender;
-    }
-
-    public void setGender(Gender gender) {
-        this.gender = gender;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public Date getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
-    }
+//    public String getFullName() {
+//        return fullName;
+//    }
+//
+//    public void setFullName(String fullName) {
+//        this.fullName = fullName;
+//    }
+//
+//    public Gender getGender() {
+//        return gender;
+//    }
+//
+//    public void setGender(Gender gender) {
+//        this.gender = gender;
+//    }
+//
+//    public String getAddress() {
+//        return address;
+//    }
+//
+//    public void setAddress(String address) {
+//        this.address = address;
+//    }
+//
+//    public String getPhoneNumber() {
+//        return phoneNumber;
+//    }
+//
+//    public void setPhoneNumber(String phoneNumber) {
+//        this.phoneNumber = phoneNumber;
+//    }
+//
+//    public Date getBirthDate() {
+//        return birthDate;
+//    }
+//
+//    public void setBirthDate(Date birthDate) {
+//        this.birthDate = birthDate;
+//    }
 
     public CommonStatus getUserStatus() {
         return userStatus;

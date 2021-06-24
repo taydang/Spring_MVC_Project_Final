@@ -32,40 +32,41 @@ import org.springframework.format.annotation.DateTimeFormat;
  */
 @Entity
 @Table(name = "booking")
-public class BookingEntity implements Serializable {
-    
+public class BookingEntity extends PersonalEntity implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    
+
     @Column(name = "booking_date")
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date bookingDate;
-    
+
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date checkin;
-    
+
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date checkOut;
-    
+
     @Column(nullable = false, name = "booking_status")
     @Enumerated(EnumType.STRING)
     private BookingStatus bookingStatus = BookingStatus.PENDING;
-    
+
+    @Column(name = "total_price")
     private double totalPrice;
-    
+
     //------------------------------------------------------------------------------
     @ManyToOne
     @JoinColumn(name = "user_id")
     private UserEntity user;
-    
-    @OneToMany(mappedBy = "booking",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+
+    @OneToMany(mappedBy = "booking", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<BookingDetailEntity> bookingDetails;
-    
-    @OneToMany(mappedBy = "booking",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+
+    @OneToMany(mappedBy = "booking", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<PaymentEntity> payments;
 
     public BookingEntity() {
@@ -142,6 +143,5 @@ public class BookingEntity implements Serializable {
     public void setPayments(List<PaymentEntity> payments) {
         this.payments = payments;
     }
-    
-    
+
 }

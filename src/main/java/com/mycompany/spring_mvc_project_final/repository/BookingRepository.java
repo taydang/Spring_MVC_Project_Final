@@ -5,19 +5,15 @@
  */
 package com.mycompany.spring_mvc_project_final.repository;
 
-import com.mycompany.spring_mvc_project_final.entities.UserRoleEntity;
-import java.util.Set;
-//import org.springframework.data.jpa.repository.JpaRepository;
+import com.mycompany.spring_mvc_project_final.entities.BookingEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+/**
+ *
+ * @author Admin
+ */
 @Repository
-public interface UserRoleRepository extends CrudRepository<UserRoleEntity, Integer> {
-
-    Set<UserRoleEntity> findByUsers_Email(String email);
-
-    public void save(Set<UserRoleEntity> userRoles);
+public interface BookingRepository extends CrudRepository<BookingEntity, Integer>{
     
-    
-
 }
