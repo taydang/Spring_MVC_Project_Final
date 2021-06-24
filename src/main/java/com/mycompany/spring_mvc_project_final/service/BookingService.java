@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Admin
  */
 @Service
-public class BookingServiceImpl {
+public class BookingService {
 
     @Autowired
     private BookingRepository bookingRepository;

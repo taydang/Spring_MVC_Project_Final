@@ -5,7 +5,7 @@
  */
 package com.mycompany.spring_mvc_project_final.service;
 
-import com.mycompany.spring_mvc_project_final.repository.BookingDetailRepository;
+import com.mycompany.spring_mvc_project_final.repository.PromotionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +14,8 @@ import org.springframework.stereotype.Service;
  * @author Admin
  */
 @Service
-public class BookingDetailServiceImpl {
+public class PromotionService {
     
-    @Autowired 
-    private BookingDetailRepository bookingDetailRepository;
+    @Autowired
+    private PromotionRepository  promotionRepository;
 }
