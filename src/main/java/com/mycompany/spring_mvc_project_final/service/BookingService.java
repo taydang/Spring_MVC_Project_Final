@@ -15,6 +15,8 @@ import org.springframework.stereotype.Service;
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.*;
 import com.mycompany.spring_mvc_project_final.entities.BookingEntity;
+import com.mycompany.spring_mvc_project_final.repository.BookingDetailRepository;
+import com.mycompany.spring_mvc_project_final.repository.PaymentRepository;
 import java.awt.Color;
 import java.io.IOException;
 import java.sql.Date;
@@ -29,6 +31,12 @@ public class BookingService {
 
     @Autowired
     private BookingRepository bookingRepository;
+    
+    @Autowired
+    private PaymentService paymentService;
+    
+    @Autowired
+    private BookingDetailService bookingDetailService;
 
     // add, get, change status, print invoice, export: 
     // get booking: 
