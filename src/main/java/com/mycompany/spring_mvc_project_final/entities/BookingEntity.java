@@ -33,46 +33,41 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 @Table(name = "booking")
 public class BookingEntity extends PersonalEntity implements Serializable {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    
+
     @Column(name = "booking_date")
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date bookingDate;
-    
-    @Column(name = "check_in")
+
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date checkIn;
-    
-    @Column(name = "check_out")
+    private Date checkin;
+
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date checkOut;
-    
+
     @Column(nullable = false, name = "booking_status")
     @Enumerated(EnumType.STRING)
     private BookingStatus bookingStatus = BookingStatus.PENDING;
-    
+
     @Column(name = "total_price")
     private double totalPrice;
-    
+
     //------------------------------------------------------------------------------
     @ManyToOne
     @JoinColumn(name = "user_id")
     private UserEntity user;
-    
-    @OneToMany(mappedBy = "booking",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+
+    @OneToMany(mappedBy = "booking", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<BookingDetailEntity> bookingDetails;
-    
-    @OneToMany(mappedBy = "booking",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+
+    @OneToMany(mappedBy = "booking", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<PaymentEntity> payments;
-    
-    @OneToMany(mappedBy = "booking",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private List<GuestEntity> guests;
 
     public BookingEntity() {
     }
@@ -93,12 +88,12 @@ public class BookingEntity extends PersonalEntity implements Serializable {
         this.bookingDate = bookingDate;
     }
 
-    public Date getCheckIn() {
-        return checkIn;
+    public Date getCheckin() {
+        return checkin;
     }
 
-    public void setCheckIn(Date checkIn) {
-        this.checkIn = checkIn;
+    public void setCheckin(Date checkin) {
+        this.checkin = checkin;
     }
 
     public Date getCheckOut() {
@@ -149,13 +144,4 @@ public class BookingEntity extends PersonalEntity implements Serializable {
         this.payments = payments;
     }
 
-    public List<GuestEntity> getGuests() {
-        return guests;
-    }
-
-    public void setGuests(List<GuestEntity> guests) {
-        this.guests = guests;
-    }
-    
-    
 }
