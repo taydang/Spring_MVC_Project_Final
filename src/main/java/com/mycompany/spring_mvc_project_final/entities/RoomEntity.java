@@ -6,6 +6,7 @@
 package com.mycompany.spring_mvc_project_final.entities;
 
 import com.mycompany.spring_mvc_project_final.enums.CommonStatus;
+import com.mycompany.spring_mvc_project_final.enums.UserStatus;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -38,6 +39,7 @@ public class RoomEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(name = "room_number")
     private String roomNumber;
     
     @Column(nullable = false, name = "room_status")
@@ -45,6 +47,8 @@ public class RoomEntity implements Serializable {
     private CommonStatus roomStatus = CommonStatus.ACTIVE;
     
     private double price;
+    
+    @Column(name = "number_of_bed")
     private int numberOfBed;
     
     @Column(name = "create_date")

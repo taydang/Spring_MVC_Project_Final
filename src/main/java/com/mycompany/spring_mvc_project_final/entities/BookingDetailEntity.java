@@ -38,10 +38,6 @@ public class BookingDetailEntity implements Serializable {
     @JoinColumn(name = "room_id")
     private RoomEntity room;
     
-    @ManyToOne
-    @JoinColumn(name = "promotion_id")
-    private PromotionEntity promotion;
-    
     @OneToMany(mappedBy = "bookingDetail", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<ServiceBookingEntity> serviceBookings;
 
@@ -70,14 +66,6 @@ public class BookingDetailEntity implements Serializable {
 
     public void setRoom(RoomEntity room) {
         this.room = room;
-    }
-
-    public PromotionEntity getPromotion() {
-        return promotion;
-    }
-
-    public void setPromotion(PromotionEntity promotion) {
-        this.promotion = promotion;
     }
 
     public List<ServiceBookingEntity> getServiceBookings() {
