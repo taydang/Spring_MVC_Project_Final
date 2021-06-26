@@ -1,12 +1,13 @@
 <%-- 
     Document   : js-page
-    Created on : Jun 26, 2021, 8:37:13 AM
+    Created on : Jun 19, 2021, 3:37:40 PM
     Author     : Admin
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<!-- start js include path -->
 <script src="<c:url value="/resources-management/assets/plugins/jquery/jquery.min.js"/>" ></script>
 <script src="<c:url value="/resources-management/assets/plugins/popper/popper.min.js"/>" ></script>
 <script src="<c:url value="/resources-management/assets/plugins/jquery-blockui/jquery.blockui.min.js"/>" ></script>
@@ -27,3 +28,5 @@
 <script src="<c:url value="/resources-management/assets/plugins/morris/morris.min.js"/>" ></script>
 <script src="<c:url value="/resources-management/assets/plugins/morris/raphael-min.js"/>" ></script>
 <script src="<c:url value="/resources-management/assets/js/pages/chart/morris/morris_home_data.js"/>" ></script>
+<!-- end js include path -->
+<!-- end js include path -->

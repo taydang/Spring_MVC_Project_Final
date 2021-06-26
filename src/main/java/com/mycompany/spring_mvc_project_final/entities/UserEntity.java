@@ -5,7 +5,8 @@
  */
 package com.mycompany.spring_mvc_project_final.entities;
 
-import com.mycompany.spring_mvc_project_final.enums.UserStatus;
+import com.mycompany.spring_mvc_project_final.enums.Gender;
+import com.mycompany.spring_mvc_project_final.enums.CommonStatus;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -58,9 +59,9 @@ public class UserEntity extends PersonalEntity implements Serializable {
 //    @DateTimeFormat(pattern = "yyyy-MM-dd")
 //    private Date birthDate;
     
-    @Column(nullable = false)
+    @Column(nullable = false, name = "user_status")
     @Enumerated(EnumType.STRING)
-    private UserStatus status = UserStatus.ACTIVE;
+    private CommonStatus userStatus = CommonStatus.ACTIVE;
     
     private int vote;
     
@@ -152,12 +153,12 @@ public class UserEntity extends PersonalEntity implements Serializable {
 //        this.birthDate = birthDate;
 //    }
 
-    public UserStatus getStatus() {
-        return status;
+    public CommonStatus getUserStatus() {
+        return userStatus;
     }
 
-    public void setStatus(UserStatus status) {
-        this.status = status;
+    public void setUserStatus(CommonStatus userStatus) {
+        this.userStatus = userStatus;
     }
 
     public int getVote() {

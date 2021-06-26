@@ -10,13 +10,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/user")
 public class UserController {
 
-    @RequestMapping(value = {"/", "home"}, method = RequestMethod.GET)
+    @RequestMapping("/home")
     public String viewHome(Model model) {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = principal.toString();
@@ -25,6 +24,6 @@ public class UserController {
         }
 
         model.addAttribute("message", "Hello User: " + username);
-        return "/user/home";
+        return "home";
     }
 }

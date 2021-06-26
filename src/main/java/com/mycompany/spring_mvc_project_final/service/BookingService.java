@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.*;
-import com.mycompany.spring_mvc_project_final.entities.BookingDetailEntity;
 import com.mycompany.spring_mvc_project_final.entities.BookingEntity;
 import com.mycompany.spring_mvc_project_final.repository.BookingDetailRepository;
 import com.mycompany.spring_mvc_project_final.repository.PaymentRepository;
@@ -53,7 +52,6 @@ public class BookingService {
     //add booking: 
     public void saveBooking(BookingEntity booking) {
         bookingRepository.save(booking);
-        bookingDetailService.saveBookingDetail((BookingDetailEntity) booking.getBookingDetails());
     }
 
     //Change status: 
@@ -94,7 +92,7 @@ public class BookingService {
 
         for (BookingEntity booking : bookingRepository.findAll()) {
             table.addCell(String.valueOf(booking.getId()));
-            table.addCell(String.valueOf(booking.getCheckIn()));
+            table.addCell(String.valueOf(booking.getCheckin()));
             table.addCell(String.valueOf(booking.getCheckOut()));
             table.addCell(String.valueOf(booking.getTotalPrice()));
             table.addCell(String.valueOf(booking.getUser().getId()));

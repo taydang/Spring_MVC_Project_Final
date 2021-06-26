@@ -6,7 +6,7 @@
 package com.mycompany.spring_mvc_project_final.repository;
 
 import com.mycompany.spring_mvc_project_final.entities.UserEntity;
-import com.mycompany.spring_mvc_project_final.enums.UserStatus;
+import com.mycompany.spring_mvc_project_final.enums.CommonStatus;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,5 +14,5 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository extends CrudRepository<UserEntity, Integer> {
 
     UserEntity findByEmailLikeAndStatusLike(String email,
-            UserStatus status);
+            CommonStatus status);
 }

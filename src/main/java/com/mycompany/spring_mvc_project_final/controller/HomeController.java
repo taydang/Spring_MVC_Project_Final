@@ -19,29 +19,16 @@ public class HomeController {
 
     @RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
     public String welcomePage(Model model) {
-//        model.addAttribute("title", "Welcome");
-//        model.addAttribute("message", "This is welcome page!");
+        model.addAttribute("title", "Welcome");
+        model.addAttribute("message", "This is welcome page!");
 //        List<String> roles = SecurityUtils.getRolesOfUser();
 //        if (!CollectionUtils.isEmpty(roles) && (roles.contains("ROLE_ADMIN")
 //                || roles.contains("ROLE_SELLER") || roles.contains("ROLE_MANAGER"))) {
 //            return "redirect:/admin/home";
 //        }
-        return "home";
-    }
-    
-    @RequestMapping(value = {"/room_list"}, method = RequestMethod.GET)
-    public String roomList(Model model) {
-        return "room_list";
-    }
-    
-//    @RequestMapping(value = {"/admin/home"}, method = RequestMethod.GET)
-//    public String adminHome(Model model) {
-//        return "admin/home";
-//    }
-    
-    @RequestMapping(value = {"/room_detail"}, method = RequestMethod.GET)
-    public String roomDetail(Model model) {
-        return "room_detail";
+        return "user/user-home";
+        
+        
     }
 
     @RequestMapping("/login")
@@ -52,8 +39,25 @@ public class HomeController {
         return "login";
     }
 
-//    @RequestMapping("/403")
-//    public String accessDenied(Model model) {
-//        return "403Page";
+    @RequestMapping("/403")
+    public String accessDenied(Model model) {
+        return "403Page";
+    }
+    
+//     @RequestMapping("/users/export/pdf")
+//    public void exportToPDF(HttpServletResponse response) throws DocumentException, IOException {
+//        response.setContentType("application/pdf");
+//        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+//        String currentDateTime = dateFormatter.format(new Date());
+//         
+//        String headerKey = "Content-Disposition";
+//        String headerValue = "attachment; filename=users_" + currentDateTime + ".pdf";
+//        response.setHeader(headerKey, headerValue);
+//         
+//        List<User> listUsers = service.listAll();
+//         
+//        UserPDFExporter exporter = new UserPDFExporter(listUsers);
+//        exporter.export(response);
+//         
 //    }
 }
