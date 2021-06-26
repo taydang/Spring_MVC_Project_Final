@@ -33,7 +33,11 @@ public class CreditCardEntity implements Serializable {
     private Integer id;
     
     private String name;
+    
+    @Column(name = "card_number")
     private String cardNumber;
+    
+    @Column(name = "cvc_code")
     private String cvcCode;
     private double balance;
     

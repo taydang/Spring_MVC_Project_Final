@@ -17,12 +17,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
- * @author Admin
+ * @author Administrator
  */
 @MappedSuperclass
 public abstract class PersonalEntity {
     
-   @Column(unique = true, length = 100, nullable = false)
+    @Column(unique = true, length = 100, nullable = false)
     private String email;
     
     @Column(nullable = false, name = "full_name")
@@ -92,7 +92,6 @@ public abstract class PersonalEntity {
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
-    
     
     
     

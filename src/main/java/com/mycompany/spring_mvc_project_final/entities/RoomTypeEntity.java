@@ -6,6 +6,7 @@
 package com.mycompany.spring_mvc_project_final.entities;
 
 import com.mycompany.spring_mvc_project_final.enums.CommonStatus;
+import com.mycompany.spring_mvc_project_final.enums.UserStatus;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -47,6 +48,7 @@ public class RoomTypeEntity implements Serializable {
     private CommonStatus roomTypeStatus = CommonStatus.ACTIVE;
     
 //    private String size;
+    @Column(name = "number_of_guest")
     private Integer numberOfGuest;
     
     @Column(name = "create_date")
@@ -65,6 +67,13 @@ public class RoomTypeEntity implements Serializable {
             joinColumns = @JoinColumn(name = "room_type_id"),
             inverseJoinColumns = @JoinColumn(name = "promotion_id"))
     private List<PromotionEntity> promotions;
+    
+    @ManyToMany
+    @JoinTable(
+            name = "room_type_convenient",
+            joinColumns = @JoinColumn(name = "room_type_id"),
+            inverseJoinColumns = @JoinColumn(name = "convenient_id"))
+    private List<ConvenientEntity> convenients;
 
     public RoomTypeEntity() {
     }
@@ -131,6 +140,14 @@ public class RoomTypeEntity implements Serializable {
 
     public void setPromotions(List<PromotionEntity> promotions) {
         this.promotions = promotions;
+    }
+
+    public List<ConvenientEntity> getConvenients() {
+        return convenients;
+    }
+
+    public void setConvenients(List<ConvenientEntity> convenients) {
+        this.convenients = convenients;
     }
     
     

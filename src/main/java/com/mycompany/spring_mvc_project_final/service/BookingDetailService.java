@@ -48,6 +48,7 @@ public class BookingDetailService {
     //Save: 
     public void saveBookingDetail (BookingDetailEntity bookingDetail) {
         bookingDetailRepository.save(bookingDetail);
+        roomService.saveRoom(bookingDetail.getRoom());
         
     }
     

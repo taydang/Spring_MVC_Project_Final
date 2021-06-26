@@ -6,6 +6,7 @@
 package com.mycompany.spring_mvc_project_final.entities;
 
 import com.mycompany.spring_mvc_project_final.enums.CommonStatus;
+import com.mycompany.spring_mvc_project_final.enums.UserStatus;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -62,9 +63,6 @@ public class PromotionEntity implements Serializable {
     private Date createDate;
     
     //----------------------------------
-    
-    @OneToMany(mappedBy = "promotion",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    private List<BookingDetailEntity> bookingDetails;
     
     @ManyToMany(mappedBy = "promotions", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<RoomTypeEntity> roomTypes;
@@ -134,14 +132,6 @@ public class PromotionEntity implements Serializable {
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
-    }
-
-    public List<BookingDetailEntity> getBookingDetails() {
-        return bookingDetails;
-    }
-
-    public void setBookingDetails(List<BookingDetailEntity> bookingDetails) {
-        this.bookingDetails = bookingDetails;
     }
 
     public List<RoomTypeEntity> getRoomTypes() {

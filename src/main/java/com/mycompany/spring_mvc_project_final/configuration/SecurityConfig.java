@@ -30,6 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return bCryptPasswordEncoder;
     }
 
+    //Receive Pass value from DB to encode pass to find user 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
@@ -39,14 +40,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http.csrf().disable();
-        http.authorizeRequests().antMatchers("/", "/login", "/logout", "/home").permitAll();
+        http.authorizeRequests().antMatchers("/", "/login", "/logout", "/home").permitAll(); // None role
 
-        http.authorizeRequests()
-                .antMatchers("/user/*").access("hasAnyRole('ROLE_ADMIN,ROLE_USER')")
-                .antMatchers("/admin/*").access("hasRole('ROLE_ADMIN')")
-                .antMatchers("/management/*").access("hasRole('ROLE_ADMIN')");
-        
-        
+        http.authorizeRequests().antMatchers("/user/*").access("hasAnyRole('ROLE_ADMIN,ROLE_USER')")    // Role
+                .antMatchers("/seller/*").access("hasAnyRole('ROLE_SELLER')")
+                .antMatchers("/manager/*").access("hasAnyRole('ROLE_MANAGER')")
+                .antMatchers("/admin/*").access("hasRole('ROLE_ADMIN')");   // Add role continue
 
         http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/403");
 

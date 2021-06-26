@@ -7,11 +7,10 @@ package com.mycompany.spring_mvc_project_final.service;
 
 import com.mycompany.spring_mvc_project_final.entities.UserEntity;
 import com.mycompany.spring_mvc_project_final.entities.UserRoleEntity;
-import com.mycompany.spring_mvc_project_final.enums.CommonStatus;
+import com.mycompany.spring_mvc_project_final.enums.UserStatus;
 import com.mycompany.spring_mvc_project_final.repository.UserRepository;
 import com.mycompany.spring_mvc_project_final.repository.UserRoleRepository;
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -34,7 +33,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        UserEntity user = userRepository.findByEmailLikeAndStatusLike(email, CommonStatus.ACTIVE);
+        UserEntity user = userRepository.findByEmailLikeAndStatusLike(email, UserStatus.ACTIVE);
         if (user == null) {
             throw new UsernameNotFoundException(email);
         }
@@ -49,39 +48,5 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         return (UserDetails) new User(user.getEmail(), user.getPassword(), grantList);
     }
-
-    //get, add, update, change password of user: 
-    //add user:
-    public void saveUser(UserEntity user) {
-        userRepository.save(user);
-        userRoleRepository.save(user.getUserRoles());
-
-    }
-
-    public UserEntity findUserById(int id) {
-        Optional<UserEntity> optional = userRepository.findById(id);
-        if (optional.isPresent()) {
-            return optional.get();
-        } else {
-            return new UserEntity();
-        }
-    }
-
-    //Delete User: 
-    public boolean deleteUser(int id) {
-        userRepository.deleteById(id);
-        return userRepository.existsById(id);
-    }
-
-    //Change Password: 
-    public void updateUserPassword(int id, String password) {
-        UserEntity user = findUserById(id);
-        user.setPassword(password);
-        userRepository.save(user);
-
-    }
-    
-
-    
 
 }

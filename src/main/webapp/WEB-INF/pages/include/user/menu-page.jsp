@@ -1,24 +1,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
-<!--[if lte IE 8]>
-    <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a>.</p>
-<![endif]-->
-
-<div class="layer"></div>
-<!-- Mobile menu overlay mask -->
-
-<div id="preloader">
-    <div data-loader="circle-side"></div>
-</div><!-- End Preload -->
-
 <!-- Header ================================================== -->
 <header>
     <div class="container">
         <div class="row">
             <div class="col--md-3 col-sm-3 col-xs-3">
-                <a href="<c:url value="../include/user/user-home.jsp"/>" id="logo">
-                    <img src="<c:url value="/resources/img/logo.png"/>" width="190" height="23" alt="" data-retina="true">
+                <a href="home" id="logo">
+                    <img src="./resources/img/logo.png" width="190" height="23" alt="" data-retina="true">
                 </a>
             </div>
             <nav class="col--md-9 col-sm-9 col-xs-9">
@@ -30,40 +19,52 @@
                 </ul>
                 <div class="main-menu">
                     <div id="header_menu">
-                        <img src="<c:url value="/resources/img/logo_m.png"/>" width="141" height="40" alt="" data-retina="true">
+                        <img src="./resources/img/logo_m.png" width="141" height="40" alt="" data-retina="true">
                     </div>
                     <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
                     <ul>
                         <li class="submenu">
-                            <a href="javascript:void(0);" class="show-submenu">Home<i class="icon-down-open-mini"></i></a>
+                            <a href="room_list" class="show-submenu">Room Type<i class="icon-down-open-mini"></i></a>
                             <ul>
-                                <li><a href="<c:url value="/resources/pages/index.jsp"/>">Home Booking</a></li>
-                                <li><a href="<c:url value="/resources/pages/index_5.jsp"/>">Home Booking date 2</a></li>
-                                <li><a href="<c:url value="/resources/pages/index_4.jsp"/>">Home Carousel</a></li>
-                                <li><a href="<c:url value="/resources/pages/index_2.jsp"/>">Home Layer Slider</a></li>
-                                <li><a href="<c:url value="/resources/pages/index_6.jsp"/>">Home Video bg</a></li>
-                                <li><a href="<c:url value="/resources/pages/index_3.jsp"/>">Home Text Rotator</a></li>
+                                <li><a href="index.jsp">Single Room</a></li>
+                                <li><a href="index_5.jsp">Double Room</a></li>
+                                <li><a href="index_4.jsp">Double Room Luxury</a></li>
+                                <li><a href="index_2.jsp">Suite Room</a></li>
                             </ul>
                         </li>
-                        <li><a href="<c:url value="/resources/pages/room_list.jsp"/>">Rooms</a></li>
+
+                        <li class="submenu">
+                            <a href="javascript:void(0);" class="show-submenu">Home<i class="icon-down-open-mini"></i></a>
+                            <ul>
+                                <li><a href="index.jsp">Home Booking</a></li>
+                                <li><a href="index_5.html">Home Booking date 2</a></li>
+                                <li><a href="index_4.html">Home Carousel</a></li>
+                                <li><a href="index_2.html">Home Layer Slider</a></li>
+                                <li><a href="index_6.html">Home Video bbg</a></li>
+                                <li><a href="index_3.html">Home Text Rotator</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="room_list.html">Rooms</a></li>
                         <li class="submenu">
                             <a href="javascript:void(0);" class="show-submenu">Pages<i class="icon-down-open-mini"></i></a>
                             <ul>
-                                <li><a href="<c:url value="/resources/header_2/index.jsp"/>">Header transparent</a></li>
-                                <li><a href="<c:url value="/resources/pages/room_detail.jsp"/>">Room detail</a></li>
-                                <li><a href="<c:url value="/resources/pages/room_detail_2.jsp"/>">Room detail date 2</a></li>
-                                <li><a href="<c:url value="/resources/pages/about.jsp"/>">About us</a></li>
-                                <li><a href="<c:url value="/resources/pages/faq.jsp"/>">Faq</a></li>
-                                <li><a href="<c:url value="/resources/pages/gallery.jsp"/>">Gallery</a></li>
-                                <li><a href="<c:url value="/resources/pages/blog.jsp"/>">Blog</a></li>
-                                <li><a href="<c:url value="/resources/coming_soon/index.jsp"/>">Site launch/Coming soon</a></li>
-                                <li><a href="<c:url value="/resources/pages/shortcodes.jsp"/>">Shortcodes</a></li>
-                                <li><a href="<c:url value="/resources/pages/icon_pack_1.jsp"/>">Icon pack 1</a></li>
-                                <li><a href="<c:url value="/resources/pages/icon_pack_2.jsp"/>">Icon pack 2</a></li>
-                                <li><a href="<c:url value="/resources/pages/icon_pack_3.jsp"/>">Icon pack 3</a></li>
+                                <li><a href="header_2/index.html">Header transparent</a></li>
+                                <li><a href="room_detail.html">Room detail</a></li>
+                                <li><a href="room_detail_2.html">Room detail date 2</a></li>
+                                <li><a href="about.html">About us</a></li>
+                                <li><a href="faq.html">Faq</a></li>
+                                <li><a href="gallery.html">Gallery</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="coming_soon/index.html">Site launch/Coming soon</a></li>
+                                <li><a href="shortcodes.html">Shortcodes</a></li>
+                                <li><a href="icon_pack_1.html">Icon pack 1</a></li>
+                                <li><a href="icon_pack_2.html">Icon pack 2</a></li>
+                                <li><a href="icon_pack_3.html">Icon pack 3</a></li>
                             </ul>
                         </li>
-                        <li><a href="<c:url value="/resources/pages/contacts.jsp"/>">Contacts</a></li>
+                        <li><a href="contacts.html">Contacts</a></li>
+                        <li><a href="<c:url value="/admin/home.jsp"/>">Management</a></li>
+                        <li><a href="contacts.html">About Us</a></li>
                     </ul>
                 </div><!-- End main-menu -->
 
@@ -74,11 +75,11 @@
 <!-- End Header =============================================== -->
 
 <!-- SubHeader =============================================== -->
-<div class="parallax-window" id="booking" data-parallax="scroll" data-image-src="img/sub_header_home.jpg" data-natural-width="1400" data-natural-height="550">
+<div class="parallax-window" id="booking" data-parallax="scroll" data-image-src="./resources/img/sub_header_home.jpg" data-natural-width="1400" data-natural-height="550">
     <div id="subheader_home">
         <div id="sub_content">
             <div id="book_container">
-                <form method="post" action="<c:url value="/resources/assets/check_avail_home.php"/>" id="check_avail_home" autocomplete="off">
+                <form method="post" action="assets/check_avail_home.php" id="check_avail_home" autocomplete="off">
                     <div id="group_1">
                         <div id="container_1">
                             <label>Arrival date</label>
@@ -129,3 +130,4 @@
     </div><!-- End subheader -->
 </div><!-- End parallax-window -->
 <!-- End SubHeader ============================================ -->
+
